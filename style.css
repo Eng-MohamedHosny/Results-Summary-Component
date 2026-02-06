@@ -1,0 +1,260 @@
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  /* ### Primary */
+  --light-red: hsl(0, 100%, 67%);
+  --orangey-yellow: hsl(39, 100%, 56%);
+  --green-teal: hsl(166, 100%, 37%);
+  --cobalt-blue: hsl(234, 85%, 45%);
+  /* ## Gradients */
+  /* background */
+  --light-slate-blue: hsl(252, 100%, 67%);
+  --light-royal-blue: hsl(241, 81%, 54%);
+  /* circle */
+  --violet-blue: hsla(256, 72%, 46%, 1);
+  --persian-blue: hsla(241, 72%, 46%, 0);
+  /* ### Neutral */
+  --white: hsl(0, 0%, 100%);
+  --pale-blue: hsl(221, 100%, 96%);
+  --light-lavender: hsl(241, 100%, 89%);
+  --dark-gray-blue: hsl(224, 30%, 27%);
+  --fw-medium: 500;
+  --fw-bold: 700;
+  --fw-extra-bold: 800;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Hanken Grotesk", sans-serif;
+  font-size: 1.8rem;
+  min-height: 100vh;
+  background: var(--pale-blue);
+}
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  max-width: 73.4rem;
+  height: 51.3rem;
+  border-radius: 3.2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: white;
+}
+
+.card .left-section {
+  color: white;
+  padding: 3.9rem;
+  border-radius: 3.2rem;
+  background-image: linear-gradient(
+    to bottom,
+    var(--light-slate-blue),
+    var(--light-royal-blue)
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.left-section>h2{
+  margin-bottom: 3.6rem;
+}
+.left-section .circle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 19.8rem;
+  height: 19.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  background-image: linear-gradient(
+    to bottom,
+    var(--violet-blue),
+    var(--persian-blue)
+  );
+}
+
+.left-section .circle h2 {
+  font-size: 7.2rem;
+}
+.left-section h3 {
+  font-size: 3.1rem;
+  font-weight: var(--fw-extra-bold);
+  margin-top: 3.3rem;
+  margin-bottom: 1.5rem;
+}
+.left-section p {
+    padding-left: 18px;
+    padding-right: 8px;
+}
+
+
+/* Right Section */
+.right-section {
+  padding: 3.9rem 3.8rem 4.6rem;
+  /* position: relative; */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.right-section h2 {
+  font-size: 2.4rem;
+  font-weight: var(--fw-bold);
+  margin-bottom: 2.9rem;
+}
+.right-section ul {
+  list-style-type: none;
+  font-weight: var(--fw-bold);
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  width: 100%;
+}
+.right-section ul li {
+  /* max-width: 28.8rem; */
+  height: 5.5rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  position: relative;
+}
+.right-section img {
+  margin-right: 1.1rem;
+}
+.right-section .test-title {
+  font-weight: var(--fw-medium);
+  
+}
+.of-score {
+  color: #bab6b9;
+}
+.score {
+  color: var(--dark-gray-blue);
+  position: absolute;
+  right: 1.7rem;
+}
+.right-section .reaction {
+  background: #fff6f7;
+  color: var(--light-red);
+}
+.right-section .memory {
+  background: #fffaf4;
+  color: var(--orangey-yellow);
+}
+.right-section .verbal {
+  background: #f2fdf9;
+  color: var(--green-teal);
+}
+.right-section .visual {
+  background: #f4f4fe;
+  color: var(--cobalt-blue);
+}
+.right-section button {
+  border-radius: 2.8rem;
+  border-style: none;
+  color: var(--white);
+  font-weight: var(--fw-bold);
+  background: var(--dark-gray-blue);
+  font-size: 1.8rem;
+  /* إلغاء التموضع المطلق */
+  margin-top: auto; /* دفع الزرار للأسفل */
+  cursor: pointer;
+  
+  width: 100%; /* ليكون متجاوباً مع عرض الحاوية */
+  max-width: 28.8rem;
+  height: 5.7rem;
+  border-radius: 2.8rem;
+  /* باقي التنسيقات كما هي... */
+  align-self: center; /* توسيط الزرار إذا كان العرض أكبر من max-width */
+
+}
+
+.right-section button:hover {
+  background-image: linear-gradient(
+    to bottom,
+    var(--light-slate-blue),
+    var(--light-royal-blue)
+  );
+}
+
+
+
+@media (max-width:600px)
+{
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+  }
+  .card {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    border-radius: 0 ;
+  }
+  .card .left-section {
+    border-radius: 0 0 3.2rem 3.2rem;
+    height: 35.7rem;
+    padding: 2.2rem;
+  }
+  .left-section .circle {
+    width: 13.6rem;
+    height: 13.6rem;
+    margin-bottom: 1.5rem;
+  }
+ .left-section>h2{
+  font-size:2rem;
+  margin-top:0;
+  margin-bottom: 1rem;
+}
+.left-section h3 {
+  margin-top: 1rem;
+  margin-bottom: 1;
+  font-size: 2.5rem;
+}
+.left-section .circle h2 {
+  font-size: 5.5rem;
+}
+.right-section ul li {
+  min-width: 21.3rem;
+}
+  .right-section {
+    border-radius: 0;
+    background: white;
+    padding: 1rem 3rem;
+  }
+.right-section h2 {
+  font-size: 2rem;
+  font-weight: var(--fw-bold);
+  margin-bottom: 1.5rem;
+  
+}
+.right-section ul {
+  padding-top: 0.5rem;
+  padding-bottom: 1rem;
+}
+.right-section button {
+  margin-top: auto;
+  max-width: 100%;
+}
+  
+}
+@media (min-width:400px) and (max-width:600px)
+{
+  .right-section button {
+
+  max-width: 80%;
+}
+}
