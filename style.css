@@ -90,7 +90,7 @@ body {
 .result-section .circle h1 {
   font-size: 7.2rem;
 }
-.result-section h3 {
+.result-section h2 {
   font-size: 3.1rem;
   font-weight: var(--fw-extra-bold);
   margin-top: 3.3rem;
