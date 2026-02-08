@@ -21,6 +21,7 @@
   --fw-medium: 500;
   --fw-bold: 700;
   --fw-extra-bold: 800;
+  --line-height: 130%;
 }
 * {
   margin: 0;
@@ -43,15 +44,17 @@ body {
   align-items: center;
 }
 .card {
-  max-width: 73.4rem;
-  height: 51.3rem;
+  max-width: 73.6rem;
+  height: 51.2rem;
   border-radius: 3.2rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   background: white;
+  margin-inline: 4.1rem;
+  box-shadow: 0 30px 60px 0 rgba(61, 108, 236, 0.15);
 }
 
-.card .left-section {
+.card .result-section {
   color: white;
   padding: 3.9rem;
   border-radius: 3.2rem;
@@ -65,16 +68,16 @@ body {
   align-items: center;
   text-align: center;
 }
-.left-section>h2{
+.result-section > h2 {
   margin-bottom: 3.6rem;
 }
-.left-section .circle {
+.result-section .circle {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 19.8rem;
-  height: 19.5rem;
+  aspect-ratio: 1/1;
   border-radius: 50%;
   overflow: hidden;
   background-image: linear-gradient(
@@ -84,103 +87,99 @@ body {
   );
 }
 
-.left-section .circle h2 {
+.result-section .circle h2 {
   font-size: 7.2rem;
 }
-.left-section h3 {
+.result-section h3 {
   font-size: 3.1rem;
   font-weight: var(--fw-extra-bold);
   margin-top: 3.3rem;
   margin-bottom: 1.5rem;
 }
-.left-section p {
-    padding-left: 18px;
-    padding-right: 8px;
+.result-section p {
+  padding-left: 18px;
+  padding-right: 8px;
 }
 
-
-/* Right Section */
-.right-section {
-  padding: 3.9rem 3.8rem 4.6rem;
-  /* position: relative; */
+/* Summary Section */
+.summary-section {
+  padding: 4.45rem 4rem;
   height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  line-height: var(--line-height);
+  gap: 3.2rem;
 }
-.right-section h2 {
+.summary-section h2 {
   font-size: 2.4rem;
   font-weight: var(--fw-bold);
-  margin-bottom: 2.9rem;
+  color: var(--dark-gray-blue);
 }
-.right-section ul {
-  list-style-type: none;
-  font-weight: var(--fw-bold);
+.summary-items {
   display: flex;
   flex-direction: column;
-  gap: 1.8rem;
-  width: 100%;
+  justify-content: center;
+  gap: 1.6rem;
+  line-height: var(--line-height);
 }
-.right-section ul li {
-  /* max-width: 28.8rem; */
-  height: 5.5rem;
-  border-radius: 1rem;
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.65rem 1.9rem;
+  width: 100%;
+  height: 5.6rem;
+  border-radius: 1.2rem;
+}
+.summary-item .summary-item-label {
   display: flex;
   align-items: center;
-  padding: 1.5rem;
-  position: relative;
-}
-.right-section img {
-  margin-right: 1.1rem;
-}
-.right-section .test-title {
+  gap: 1.6rem;
   font-weight: var(--fw-medium);
-  
+  text-align: left;
 }
-.of-score {
-  color: #bab6b9;
+
+.summary-item .summary-item-score {
+  font-weight: var(--fw-bold);
+  color: hsl(224, 30%, 27%, 0.5);
+  opacity: 100%;
 }
-.score {
+.summary-item-score span {
   color: var(--dark-gray-blue);
-  position: absolute;
-  right: 1.7rem;
+  margin-right: 0.8rem;
 }
-.right-section .reaction {
+.summary-section .reaction {
   background: #fff6f7;
   color: var(--light-red);
 }
-.right-section .memory {
+.summary-section .memory {
   background: #fffaf4;
   color: var(--orangey-yellow);
 }
-.right-section .verbal {
+.summary-section .verbal {
   background: #f2fdf9;
   color: var(--green-teal);
 }
-.right-section .visual {
+.summary-section .visual {
   background: #f4f4fe;
   color: var(--cobalt-blue);
 }
-.right-section button {
-  border-radius: 2.8rem;
+.summary-section button {
+  border-radius: 12.8rem;
   border-style: none;
-  color: var(--white);
-  font-weight: var(--fw-bold);
   background: var(--dark-gray-blue);
+  font-weight: var(--fw-bold);
   font-size: 1.8rem;
-  /* إلغاء التموضع المطلق */
-  margin-top: auto; /* دفع الزرار للأسفل */
+  color: var(--white);
   cursor: pointer;
-  
-  width: 100%; /* ليكون متجاوباً مع عرض الحاوية */
-  max-width: 28.8rem;
-  height: 5.7rem;
+  width: 100%;
+  height: 5.6rem;
   border-radius: 2.8rem;
-  /* باقي التنسيقات كما هي... */
-  align-self: center; /* توسيط الزرار إذا كان العرض أكبر من max-width */
-
+  align-self: center;
+  line-height: var(--line-height);
 }
-
-.right-section button:hover {
+.summary-section button:hover {
   background-image: linear-gradient(
     to bottom,
     var(--light-slate-blue),
@@ -188,10 +187,7 @@ body {
   );
 }
 
-
-
-@media (max-width:600px)
-{
+@media (max-width: 700px) {
   .container {
     display: flex;
     flex-direction: column;
@@ -200,61 +196,61 @@ body {
   }
   .card {
     height: 100vh;
+    width: 100%;
+    min-width: 28rem;
     display: grid;
     grid-template-columns: 1fr;
-    border-radius: 0 ;
+    grid-template-rows: 35.6rem 1fr;
+    row-gap: 24px;
+    border-radius: 0;
+    margin-inline: 0;
   }
-  .card .left-section {
+  .card .result-section {
     border-radius: 0 0 3.2rem 3.2rem;
-    height: 35.7rem;
+    height: 35.6rem;
     padding: 2.2rem;
+    box-shadow: 0 30px 60px 0 rgba(61, 108, 236, 0.15);
+    z-index: 1;
   }
-  .left-section .circle {
+  .result-section .circle {
     width: 13.6rem;
-    height: 13.6rem;
     margin-bottom: 1.5rem;
   }
- .left-section>h2{
-  font-size:2rem;
-  margin-top:0;
-  margin-bottom: 1rem;
-}
-.left-section h3 {
-  margin-top: 1rem;
-  margin-bottom: 1;
-  font-size: 2.5rem;
-}
-.left-section .circle h2 {
-  font-size: 5.5rem;
-}
-.right-section ul li {
-  min-width: 21.3rem;
-}
-  .right-section {
+  .result-section > h2 {
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  .result-section h3 {
+    margin-top: 1rem;
+    margin-bottom: 1;
+    font-size: 2.5rem;
+  }
+  .result-section .circle h2 {
+    font-size: 5.5rem;
+  }
+  .summary-section {
     border-radius: 0;
     background: white;
-    padding: 1rem 3rem;
+    margin-inline: 3rem;
+    padding: 0;
+    gap: 2.4rem;
+    display: flex;
+    justify-content: flex-start;
   }
-.right-section h2 {
-  font-size: 2rem;
-  font-weight: var(--fw-bold);
-  margin-bottom: 1.5rem;
-  
-}
-.right-section ul {
-  padding-top: 0.5rem;
-  padding-bottom: 1rem;
-}
-.right-section button {
-  margin-top: auto;
-  max-width: 100%;
-}
-  
-}
-@media (min-width:400px) and (max-width:600px)
-{
-  .right-section button {
+  .summary-item .summary-item-label {
+    font-weight: var(--fw-medium);
+  }
+  .summary-item .summary-item-score {
+    font-weight: var(--fw-bold);
+  }
 
-  max-width: 80%;
+  .summary-section button {
+    width: 80%;
+  }
 }
+@media (min-width: 400px) and (max-width: 475px) {
+  .summary-section button {
+    width: 100%;
+  }
 }
