@@ -1,11 +1,11 @@
-# Frontend Mentor - QR Code Component
+# Frontend Mentor - Results Summary Component
 
 ## Overview
-This is my solution to the **QR Code Component** challenge from [Frontend Mentor](https://www.frontendmentor.io).  
+This is my solution to the **Results Summary Component** challenge from [Frontend Mentor](https://www.frontendmentor.io).  
 The goal of this challenge is to build a QR code card component as close as possible to the provided design.
 
 ### Screenshot
-<img src="./design/desktop-design.jpg" alt="QR Code Component Screenshot" width="600">
+<img src="./design/desktop-design.jpg" alt="Results Summary Component Screenshot" width="600">
 
 
 ### Links
